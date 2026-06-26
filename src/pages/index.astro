@@ -1,0 +1,507 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SEO from '../components/SEO.astro';
+import StructuredData from '../components/StructuredData.astro';
+
+const title = 'aic.contact | The AI Contact — Premium Domain';
+const description =
+  'aic.contact — The definitive AI Contact. A premium, ultra-short domain for artificial intelligence consulting, personal brands, agencies, and professional connection in the AI era.';
+const ogImage = 'https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/581e6a5a-e4eb-4a01-a5d3-e85e52022d00/public';
+const heroBgImage = 'https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/581e6a5a-e4eb-4a01-a5d3-e85e52022d00/public';
+---
+
+<Layout title={title} description={description} ogImage={ogImage}>
+  <SEO title={title} description={description} ogImage={ogImage} pathname="/" />
+  <StructuredData
+    schema={{
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'WebSite',
+          name: 'aic.contact',
+          description: description,
+          url: 'https://aic.contact',
+        },
+        {
+          '@type': 'Product',
+          name: 'aic.contact Domain',
+          description: 'Premium domain name for artificial intelligence consulting, agencies, and professional connection. An ultra-short .contact domain with built-in meaning.',
+          offers: {
+            '@type': 'Offer',
+            availability: 'https://schema.org/InStock',
+            price: '4444',
+            priceCurrency: 'USD',
+            url: 'https://aic.contact',
+            businessFunction: 'https://schema.org/Sell',
+          },
+        },
+      ],
+    }}
+  />
+
+  <!-- Hero Section -->
+  <header
+    class="min-h-[100dvh] flex items-center relative pt-20"
+    style={`background-image: linear-gradient(rgba(10, 10, 15, 0.72), rgba(10, 10, 15, 0.78)), url('${heroBgImage}'); background-size: cover; background-position: center; background-attachment: fixed;`}
+  >
+    <div class="max-w-5xl mx-auto px-6 pb-16 pt-12 md:pt-8 text-center relative z-10">
+      <!-- Premium Badge -->
+      <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-8">
+        <div class="w-1.5 h-1.5 bg-[#22f5ff] rounded-full animate-pulse"></div>
+        <span class="text-xs font-semibold tracking-[1.5px] text-white/80">ULTRA-SHORT PREMIUM DOMAIN</span>
+      </div>
+
+      <!-- Domain Name -->
+      <h1 class="domain-text font-display mb-3 tracking-[-0.08em]">
+        aic.contact
+      </h1>
+
+      <!-- Tagline -->
+      <p class="max-w-2xl mx-auto text-3xl md:text-4xl font-light tracking-tight text-white/90 mb-4">
+        The AI Contact.
+      </p>
+
+      <p class="max-w-lg mx-auto text-xl text-white/70 mb-10">
+        The shortest, most authoritative way to say it.<br />
+        Direct. Precise. Unmistakable.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="#inquire"
+          class="group w-full sm:w-auto inline-flex items-center justify-center gap-x-3 px-9 py-4 text-lg font-semibold rounded-3xl bg-gradient-to-r from-[#22f5ff] to-[#a855f7] text-[#0a0a0f] hover:brightness-105 active:scale-[0.985] transition-all shadow-xl shadow-[#22f5ff]/20"
+        >
+          <span>Secure This Asset</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25" d="M14 5l7 7-7 7m-4-7h11" />
+          </svg>
+        </a>
+        <a
+          href="#meaning"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-x-2 px-8 py-4 text-lg font-medium rounded-3xl border border-white/20 hover:bg-white/5 transition-colors"
+        >
+          Discover the Power
+        </a>
+      </div>
+
+      <div class="mt-12 flex items-center justify-center gap-x-8 text-xs text-white/50">
+        <div class="flex items-center gap-x-1.5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 10l7-7m0 0l7 7" />
+          </svg>
+          <span>Instant Transfer</span>
+        </div>
+        <div>Escrow Protected</div>
+        <div>Built-in Meaning</div>
+      </div>
+    </div>
+
+    <!-- Subtle scroll indicator -->
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:block">
+      <div class="flex flex-col items-center gap-y-1 text-[10px] tracking-widest text-white/40">
+        <div>SCROLL TO BEGIN</div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7" />
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <!-- The Meaning Section -->
+  <section id="meaning" class="max-w-5xl mx-auto px-6 pt-20 pb-16">
+    <div class="grid md:grid-cols-12 gap-x-12 items-center">
+      <!-- Left content -->
+      <div class="md:col-span-7">
+        <div class="inline-block px-3.5 py-1 rounded-full bg-white/5 text-xs tracking-[1.5px] font-medium text-white/60 mb-4">THE NAME</div>
+
+        <h2 class="section-header tracking-[-0.04em] leading-none mb-7">
+          Three letters.<br />
+          Infinite clarity.
+        </h2>
+
+        <div class="space-y-6 text-lg text-white/80 max-w-[42ch]">
+          <p>
+            <span class="font-semibold text-white">AIC</span> stands for <span class="font-medium">Artificial Intelligence Contact</span> — or simply, the contact point for everything AI.
+          </p>
+          <p>
+            In a world drowning in long, forgettable URLs, <span class="font-semibold text-white">aic.contact</span> cuts straight through. It is short, memorable, and carries built-in meaning that tells visitors exactly what to expect.
+          </p>
+          <p class="text-white/70">
+            It is both a domain and a declaration: this is where AI meets its audience.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right visual card -->
+      <div class="md:col-span-5 mt-10 md:mt-0">
+        <div class="glass rounded-3xl p-9 md:p-10">
+          <div class="text-center">
+            <div class="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-[#22f5ff20] to-[#a855f720] border border-white/20 mb-6">
+              <span class="font-display text-5xl font-bold tracking-[-2px] bg-gradient-to-br from-[#22f5ff] to-[#a855f7] bg-clip-text text-transparent">AIC</span>
+            </div>
+
+            <div class="space-y-1">
+              <div class="text-2xl font-semibold tracking-tight">Artificial Intelligence</div>
+              <div class="text-3xl font-bold tracking-tighter text-white">Contact</div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-white/10 text-sm text-white/60">
+              The most direct path to connection<br />in the age of intelligent systems.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why This Domain Section -->
+  <section id="why" class="bg-white/5 border-y border-white/10 py-16">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <div class="inline-block px-4 py-1 rounded-full bg-white/5 text-xs tracking-[1.5px] font-medium text-white/60 mb-3">WHY THIS DOMAIN</div>
+        <h2 class="section-header tracking-[-0.03em]">Built for clarity in an age of noise.</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5">
+        <!-- Card 1 -->
+        <div class="modern-card glass rounded-3xl p-8">
+          <div class="w-11 h-11 rounded-2xl bg-[#22f5ff]/10 flex items-center justify-center mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#22f5ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-xl tracking-tight mb-3">Instant Recognition</h3>
+          <p class="text-white/70 leading-relaxed">The name literally says what it is. No explanation needed. Visitors immediately understand this is the place for AI connection, consulting, or contact.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="modern-card glass rounded-3xl p-8">
+          <div class="w-11 h-11 rounded-2xl bg-[#a855f7]/10 flex items-center justify-center mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#a855f7]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2.009 2.009 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-xl tracking-tight mb-3">Premium Email &amp; Branding</h3>
+          <p class="text-white/70 leading-relaxed">hello@aic.contact. you@aic.contact. Professional, short, and instantly credible. One of the cleanest email addresses available in the AI space today.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="modern-card glass rounded-3xl p-8">
+          <div class="w-11 h-11 rounded-2xl bg-emerald-400/10 flex items-center justify-center mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 8.944 11.922a12.024 12.024 0 01-4.462-8.968" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-xl tracking-tight mb-3">Future-Proof &amp; Versatile</h3>
+          <p class="text-white/70 leading-relaxed">AI is permanent infrastructure. A domain this concise and meaningful will only grow in relevance and brand equity as the industry matures.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ideal For / Use Cases -->
+  <section id="uses" class="max-w-6xl mx-auto px-6 py-20">
+    <div class="max-w-2xl mb-12">
+      <div class="inline-block px-3.5 py-1 rounded-full bg-white/5 text-xs tracking-[1.5px] font-medium text-white/60 mb-4">IDEAL FOR</div>
+      <h2 class="section-header tracking-[-0.035em] leading-none">The perfect foundation for serious AI professionals.</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="group p-7 rounded-3xl border border-white/10 hover:border-white/20 transition-colors bg-white/[0.015]">
+        <div class="font-mono text-xs tracking-widest text-[#22f5ff] mb-2">01</div>
+        <div class="font-semibold text-lg mb-2 group-hover:text-[#22f5ff] transition-colors">AI Consulting &amp; Advisory</div>
+        <p class="text-sm text-white/60">The ideal home for an independent AI consultant or boutique advisory firm. Professional, concise, and instantly credible with clients.</p>
+      </div>
+
+      <div class="group p-7 rounded-3xl border border-white/10 hover:border-white/20 transition-colors bg-white/[0.015]">
+        <div class="font-mono text-xs tracking-widest text-[#22f5ff] mb-2">02</div>
+        <div class="font-semibold text-lg mb-2 group-hover:text-[#22f5ff] transition-colors">Personal AI Brand</div>
+        <p class="text-sm text-white/60">For thought leaders, researchers, and executives building a lasting personal platform. you@aic.contact carries real weight.</p>
+      </div>
+
+      <div class="group p-7 rounded-3xl border border-white/10 hover:border-white/20 transition-colors bg-white/[0.015]">
+        <div class="font-mono text-xs tracking-widest text-[#22f5ff] mb-2">03</div>
+        <div class="font-semibold text-lg mb-2 group-hover:text-[#22f5ff] transition-colors">AI Agency or Studio</div>
+        <p class="text-sm text-white/60">A sharp, modern brand for agencies specializing in AI implementation, strategy, or integration. Stands out in pitches immediately.</p>
+      </div>
+
+      <div class="group p-7 rounded-3xl border border-white/10 hover:border-white/20 transition-colors bg-white/[0.015]">
+        <div class="font-mono text-xs tracking-widest text-[#22f5ff] mb-2">04</div>
+        <div class="font-semibold text-lg mb-2 group-hover:text-[#22f5ff] transition-colors">AI Product Contact Layer</div>
+        <p class="text-sm text-white/60">Perfect as the official contact or support domain for an AI tool, platform, or SaaS product. Clean and trustworthy.</p>
+      </div>
+
+      <div class="group p-7 rounded-3xl border border-white/10 hover:border-white/20 transition-colors bg-white/[0.015]">
+        <div class="font-mono text-xs tracking-widest text-[#22f5ff] mb-2">05</div>
+        <div class="font-semibold text-lg mb-2 group-hover:text-[#22f5ff] transition-colors">Professional Networking Hub</div>
+        <p class="text-sm text-white/60">A natural home for AI communities, directories, newsletters, or invitation-only networks in the artificial intelligence space.</p>
+      </div>
+
+      <div class="group p-7 rounded-3xl border border-white/10 hover:border-white/20 transition-colors bg-white/[0.015]">
+        <div class="font-mono text-xs tracking-widest text-[#22f5ff] mb-2">06</div>
+        <div class="font-semibold text-lg mb-2 group-hover:text-[#22f5ff] transition-colors">Enterprise AI Initiative</div>
+        <p class="text-sm text-white/60">Internal or external contact point for corporate AI transformation programs, innovation labs, or responsible AI offices.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Poignant Closer -->
+  <div class="max-w-3xl mx-auto px-6 text-center py-8 border-y border-white/10">
+    <p class="text-2xl md:text-3xl font-light tracking-tight text-white/90">
+      In AI, clarity is power.<br />
+      <span class="font-semibold text-white">aic.contact</span> delivers it in three letters.
+    </p>
+  </div>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="max-w-4xl mx-auto px-6 py-20">
+    <div class="text-center mb-10">
+      <div class="inline-block px-4 py-1 rounded-full bg-emerald-400/10 text-emerald-400 text-xs tracking-[1.5px] font-semibold mb-4">ACQUISITION</div>
+      <h2 class="section-header tracking-[-0.03em]">A rare, meaningful asset.</h2>
+    </div>
+
+    <div class="glass rounded-3xl p-10 md:p-14">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-y-8">
+        <div>
+          <div class="flex items-baseline gap-x-2">
+            <span class="text-7xl font-semibold tracking-tighter">$4,444</span>
+            <span class="text-white/50 text-xl">USD</span>
+          </div>
+          <p class="mt-1 text-white/60">One-time acquisition &bull; Full ownership &amp; instant transfer</p>
+
+          <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            <div class="flex items-center gap-x-2 text-white/70">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Clean title, ready for transfer</span>
+            </div>
+            <div class="flex items-center gap-x-2 text-white/70">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Escrow.com protected transaction</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="md:text-right">
+          <a
+            href="#inquire"
+            class="inline-flex w-full md:w-auto items-center justify-center px-10 py-4 rounded-3xl bg-white font-semibold text-[#0a0a0f] text-lg active:scale-[0.985] transition-all hover:bg-white/90"
+          >
+            Begin Acquisition
+          </a>
+          <p class="text-xs text-white/50 mt-3 md:mt-2">Serious buyers only. Flexible terms considered.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center">
+      <p class="text-xs text-white/50 max-w-md mx-auto">
+        Short, meaningful domains with built-in relevance to transformative technologies are increasingly rare.
+        aic.contact offers both immediate professional utility and long-term brand equity.
+      </p>
+    </div>
+  </section>
+
+  <!-- Inquiry / Contact Section -->
+  <section id="inquire" class="bg-white/5 border-t border-white/10 py-16">
+    <div class="max-w-2xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <h2 class="text-4xl font-semibold tracking-tight">Ready to own the AI Contact?</h2>
+        <p class="mt-3 text-white/70">Submit your inquiry. We respond personally to serious buyers within 24 hours.</p>
+      </div>
+
+      <!-- Form -->
+      <form id="inquiry-form" class="glass rounded-3xl p-8 md:p-10 space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-xs tracking-widest font-medium text-white/60 mb-1.5" for="name">FULL NAME</label>
+            <input type="text" id="name" required
+                   class="form-input w-full bg-white/5 border border-white/15 rounded-2xl px-5 py-3.5 text-white placeholder:text-white/40" />
+          </div>
+          <div>
+            <label class="block text-xs tracking-widest font-medium text-white/60 mb-1.5" for="email">EMAIL ADDRESS</label>
+            <input type="email" id="email" required
+                   class="form-input w-full bg-white/5 border border-white/15 rounded-2xl px-5 py-3.5 text-white placeholder:text-white/40" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs tracking-widest font-medium text-white/60 mb-1.5" for="org">ORGANIZATION OR INTENDED USE (OPTIONAL)</label>
+          <input type="text" id="org"
+                 class="form-input w-full bg-white/5 border border-white/15 rounded-2xl px-5 py-3.5 text-white placeholder:text-white/40" />
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-xs tracking-widest font-medium text-white/60 mb-1.5" for="offer">YOUR OFFER (OPTIONAL)</label>
+            <div class="relative">
+              <span class="absolute left-5 top-1/2 -translate-y-1/2 text-white/40">$</span>
+              <input type="text" id="offer" placeholder="4444"
+                     class="form-input w-full bg-white/5 border border-white/15 rounded-2xl pl-8 pr-5 py-3.5 text-white placeholder:text-white/40" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs tracking-widest font-medium text-white/60 mb-1.5" for="timeline">TIMELINE</label>
+            <select id="timeline" class="form-input w-full bg-white/5 border border-white/15 rounded-2xl px-5 py-[15px] text-white">
+              <option value="" class="bg-[#1a1a2e]">Select preferred timeline</option>
+              <option value="immediate" class="bg-[#1a1a2e]">Immediate (within 7 days)</option>
+              <option value="2weeks" class="bg-[#1a1a2e]">Within 2 weeks</option>
+              <option value="month" class="bg-[#1a1a2e]">Within 30 days</option>
+              <option value="flexible" class="bg-[#1a1a2e]">Flexible / exploring</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs tracking-widest font-medium text-white/60 mb-1.5" for="message">MESSAGE OR QUESTIONS</label>
+          <textarea id="message" rows="4" placeholder="What is your vision for aic.contact?"
+                    class="form-input w-full bg-white/5 border border-white/15 rounded-3xl px-5 py-4 text-white placeholder:text-white/40 resize-y min-h-[110px]"></textarea>
+        </div>
+
+        <button type="submit"
+                class="w-full py-4 rounded-3xl bg-gradient-to-r from-[#22f5ff] to-[#a855f7] font-semibold text-[#0a0a0f] text-lg tracking-[-0.2px] active:scale-[0.985] transition-all hover:brightness-105">
+          Submit Secure Inquiry
+        </button>
+
+        <p class="text-center text-[10px] text-white/50 tracking-wide">Your information is kept confidential. All transactions protected via escrow.</p>
+      </form>
+
+      <!-- Success Message (hidden by default) -->
+      <div id="success-message" class="hidden mt-6 glass rounded-3xl p-8 border border-emerald-400/30 text-center">
+        <div class="mx-auto w-14 h-14 rounded-full bg-emerald-400/10 flex items-center justify-center mb-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21V3" />
+          </svg>
+        </div>
+        <h3 class="text-2xl font-semibold tracking-tight mb-2">Inquiry Received</h3>
+        <p class="text-white/70 max-w-xs mx-auto">Thank you. A member of our team will personally respond within 24 hours to discuss next steps.</p>
+        <button type="button" onclick="resetForm()"
+                class="mt-6 text-sm font-medium text-white/60 hover:text-white underline underline-offset-4">Submit another inquiry</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust / Footer Bar -->
+  <div class="border-t border-white/10 py-5">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-y-3 text-xs text-white/50">
+      <div>Transactions secured via <span class="font-medium text-white/70">Escrow.com</span> &bull; Premium domain brokerage</div>
+      <div>&copy; 2026 aic.contact &bull; All rights reserved</div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  // Navbar scroll behavior
+  function initNavbar() {
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', () => {
+      if (!navbar) return;
+      if (window.scrollY > 50) {
+        navbar.classList.add('border-white/[0.08]');
+        navbar.style.boxShadow = '0 4px 30px rgba(0,0,0,0.3)';
+      } else {
+        navbar.classList.remove('border-white/[0.08]');
+        navbar.style.boxShadow = 'none';
+      }
+    });
+  }
+
+  // Smooth scroll for anchor links
+  function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href')!.substring(1);
+        const target = document.getElementById(targetId);
+
+        if (target) {
+          e.preventDefault();
+          const offset = 80;
+          const bodyRect = document.body.getBoundingClientRect().top;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition - bodyRect - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+          });
+        }
+      });
+    });
+  }
+
+  // Form handling
+  function initForm() {
+    const form = document.getElementById('inquiry-form');
+    const successMsg = document.getElementById('success-message');
+
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      if (!submitBtn) return;
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'Processing...';
+      submitBtn.disabled = true;
+
+      setTimeout(() => {
+        form.style.display = 'none';
+        if (successMsg) {
+          successMsg.classList.remove('hidden');
+          successMsg.classList.add('block');
+        }
+
+        console.log('%c[aic.contact] New inquiry submitted:', 'color:#64748b', {
+          name: (document.getElementById('name') as HTMLInputElement)?.value,
+          email: (document.getElementById('email') as HTMLInputElement)?.value,
+          org: (document.getElementById('org') as HTMLInputElement)?.value,
+          offer: (document.getElementById('offer') as HTMLInputElement)?.value,
+          timeline: (document.getElementById('timeline') as HTMLSelectElement)?.value,
+          message: (document.getElementById('message') as HTMLTextAreaElement)?.value,
+        });
+      }, 850);
+    });
+  }
+
+  function resetForm() {
+    const form = document.getElementById('inquiry-form');
+    const successMsg = document.getElementById('success-message');
+
+    if (successMsg) {
+      successMsg.classList.add('hidden');
+      successMsg.classList.remove('block');
+    }
+    if (form) {
+      form.style.display = 'block';
+      (form as HTMLFormElement).reset();
+
+      const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Submit Secure Inquiry';
+      }
+    }
+  }
+
+  // Initialize everything
+  function initializeSite() {
+    initNavbar();
+    initSmoothScroll();
+    initForm();
+
+    console.log('%c[aic.contact] Premium domain landing page initialized.', 'color:#475569; font-size: 9px');
+
+    // Preload hero image
+    const img = new Image();
+    img.src = 'https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/581e6a5a-e4eb-4a01-a5d3-e85e52022d00/public';
+  }
+
+  window.onload = initializeSite;
+</script>

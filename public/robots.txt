@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /.well-known/
+
+Sitemap: https://aic.contact/sitemap.xml
+
+Crawl-delay: 1
