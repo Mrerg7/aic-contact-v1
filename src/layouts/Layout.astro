@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { canonicalUrl } from '../lib/seo';
 
 interface Props {
   title: string;
@@ -8,8 +9,7 @@ interface Props {
 }
 
 const { title, description = 'aic.contact — The definitive AI Contact. A premium domain for artificial intelligence consulting, agencies, and professional connection.', ogImage } = Astro.props;
-const pathname = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : Astro.url.pathname + '/';
-const canonicalURL = new URL(pathname, Astro.site);
+const canonical = canonicalUrl(Astro.url.pathname);
 ---
 
 <!doctype html>
@@ -18,7 +18,7 @@ const canonicalURL = new URL(pathname, Astro.site);
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="canonical" href={canonicalURL} />
+    <link rel="canonical" href={canonical} />
 
     <!-- Google Site Verification -->
     <meta name="google-site-verification" content="u4sr-zy_LL5VyAeUE4b51WCdoN-AJHNHjanzPqrLVGs" />

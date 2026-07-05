@@ -2,17 +2,20 @@
 import Layout from '../layouts/Layout.astro';
 import SEO from '../components/SEO.astro';
 import StructuredData from '../components/StructuredData.astro';
+import { SITE_URL } from '../lib/seo';
 
 const title = 'aic.contact | The AI Contact — Premium Domain';
 const description =
   'aic.contact — The definitive AI Contact. A premium, ultra-short domain for artificial intelligence consulting, personal brands, agencies, and professional connection in the AI era.';
 const ogImage = 'https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/581e6a5a-e4eb-4a01-a5d3-e85e52022d00/public';
 const heroBgImage = 'https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/581e6a5a-e4eb-4a01-a5d3-e85e52022d00/public';
+const canonical = `${SITE_URL}/`;
 ---
 
 <Layout title={title} description={description} ogImage={ogImage}>
-  <SEO title={title} description={description} ogImage={ogImage} pathname="/" />
+  <SEO slot="head" title={title} description={description} ogImage={ogImage} pathname="/" />
   <StructuredData
+    slot="head"
     schema={{
       '@context': 'https://schema.org',
       '@graph': [
@@ -20,7 +23,7 @@ const heroBgImage = 'https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/581e6a5a-e
           '@type': 'WebSite',
           name: 'aic.contact',
           description: description,
-          url: 'https://aic.contact',
+          url: canonical,
         },
         {
           '@type': 'Product',
@@ -31,7 +34,7 @@ const heroBgImage = 'https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/581e6a5a-e
             availability: 'https://schema.org/InStock',
             price: '4444',
             priceCurrency: 'USD',
-            url: 'https://aic.contact',
+            url: canonical,
             businessFunction: 'https://schema.org/Sell',
           },
         },

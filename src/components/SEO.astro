@@ -1,4 +1,6 @@
 ---
+import { canonicalUrl } from '../lib/seo';
+
 interface Props {
   title: string;
   description: string;
@@ -7,7 +9,7 @@ interface Props {
 }
 
 const { title, description, ogImage, pathname } = Astro.props;
-const canonicalURL = new URL(pathname, Astro.site);
+const canonical = canonicalUrl(pathname);
 ---
 
 <meta name="title" content={title} />
@@ -16,7 +18,7 @@ const canonicalURL = new URL(pathname, Astro.site);
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={canonicalURL} />
+<meta property="og:url" content={canonical} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 {ogImage && <meta property="og:image" content={ogImage} />}
@@ -25,7 +27,7 @@ const canonicalURL = new URL(pathname, Astro.site);
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:url" content={canonical} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 {ogImage && <meta property="twitter:image" content={ogImage} />}
