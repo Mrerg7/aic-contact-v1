@@ -8,6 +8,10 @@ preview_urls = false
 pattern = "aic.contact"
 custom_domain = true
 
+[[routes]]
+pattern = "www.aic.contact"
+custom_domain = true
+
 [assets]
 directory = "./dist"
 binding = "ASSETS"

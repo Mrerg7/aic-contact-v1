@@ -1,4 +1,5 @@
-export const SITE_URL = 'https://aic.contact';
+export const SITE_HOST = 'aic.contact';
+export const SITE_URL = `https://${SITE_HOST}`;
 
 export function canonicalPath(pathname: string): string {
   if (pathname === '/' || pathname === '') return '/';
