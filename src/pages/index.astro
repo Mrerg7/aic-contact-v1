@@ -29,6 +29,11 @@ const canonical = `${SITE_URL}/`;
           '@type': 'Product',
           name: 'aic.contact Domain',
           description: 'Premium domain name for artificial intelligence consulting, agencies, and professional connection. An ultra-short .contact domain with built-in meaning.',
+          image: ogImage,
+          brand: {
+            '@type': 'Brand',
+            name: 'aic.contact',
+          },
           offers: {
             '@type': 'Offer',
             availability: 'https://schema.org/InStock',
@@ -36,6 +41,50 @@ const canonical = `${SITE_URL}/`;
             priceCurrency: 'USD',
             url: canonical,
             businessFunction: 'https://schema.org/Sell',
+            hasMerchantReturnPolicy: {
+              '@type': 'MerchantReturnPolicy',
+              applicableCountry: 'WW',
+              merchantReturnDays: 0,
+              returnMethod: 'https://schema.org/ReturnNotPermitted',
+              returnFees: 'https://schema.org/ReturnFeesCustomerResponsibility',
+            },
+            shippingDetails: {
+              '@type': 'OfferShippingDetails',
+              shippingDestination: {
+                '@type': 'DefinedRegion',
+                addressCountry: 'WW',
+              },
+              deliveryTime: {
+                '@type': 'ShippingDeliveryTime',
+                businessDays: {
+                  '@type': 'OpeningHoursSpecification',
+                  dayOfWeek: [
+                    'https://schema.org/Monday',
+                    'https://schema.org/Tuesday',
+                    'https://schema.org/Wednesday',
+                    'https://schema.org/Thursday',
+                    'https://schema.org/Friday',
+                  ],
+                },
+                handlingTime: {
+                  '@type': 'QuantitativeValue',
+                  minValue: 0,
+                  maxValue: 1,
+                  unitCode: 'DAY',
+                },
+                transitTime: {
+                  '@type': 'QuantitativeValue',
+                  minValue: 0,
+                  maxValue: 0,
+                  unitCode: 'DAY',
+                },
+              },
+              shippingRate: {
+                '@type': 'MonetaryAmount',
+                value: 0,
+                currency: 'USD',
+              },
+            },
           },
         },
       ],
