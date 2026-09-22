@@ -43,10 +43,9 @@ const canonical = `${SITE_URL}/`;
             businessFunction: 'https://schema.org/Sell',
             hasMerchantReturnPolicy: {
               '@type': 'MerchantReturnPolicy',
+              returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
               applicableCountry: 'WW',
-              merchantReturnDays: 0,
               returnMethod: 'https://schema.org/ReturnNotPermitted',
-              returnFees: 'https://schema.org/ReturnFeesCustomerResponsibility',
             },
             shippingDetails: {
               '@type': 'OfferShippingDetails',
