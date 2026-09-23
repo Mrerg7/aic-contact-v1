@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SEO from '../components/SEO.astro';
+
+const title = 'Page Not Found | aic.contact — Premium AI Domain for Sale';
+const description =
+  'This page does not exist. aic.contact — the premium 3-letter AI contact domain — is available for acquisition at $4,444 USD, escrow protected.';
+---
+
+<Layout title={title} description={description}>
+  <SEO slot="head" title={title} description={description} pathname="/404/" />
+
+  <section class="min-h-[70vh] flex items-center justify-center px-6 pt-24 pb-16">
+    <div class="max-w-xl text-center">
+      <div class="inline-flex items-center px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-6">
+        <span class="text-xs font-semibold tracking-[1.5px] text-white/80">404 — PAGE NOT FOUND</span>
+      </div>
+      <h1 class="text-5xl md:text-6xl font-display font-semibold tracking-tight mb-4">
+        This link is not here.
+      </h1>
+      <p class="text-white/70 text-lg mb-8">
+        The page you requested does not exist — but <span class="text-white font-medium">aic.contact</span> does, and it is available for acquisition.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/"
+          class="inline-flex items-center justify-center px-8 py-3.5 rounded-2xl bg-white text-[#0a0a0f] font-semibold hover:bg-white/90 transition-all"
+        >
+          Back to aic.contact
+        </a>
+        <a
+          href="mailto:sales@desertrich.com?subject=Acquisition%20Inquiry%20-%20aic.contact&body=Hello,%0D%0A%0D%0AI%20am%20interested%20in%20acquiring%20aic.contact.%20Please%20provide%20details%20and%20next%20steps.%0D%0A%0D%0ABest%20regards,"
+          class="inline-flex items-center justify-center px-8 py-3.5 rounded-2xl border border-white/20 hover:bg-white/5 text-white/90 font-medium transition-all"
+        >
+          Inquire: sales@desertrich.com
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<meta name="robots" content="noindex" slot="head" />

@@ -4,12 +4,40 @@ import SEO from '../components/SEO.astro';
 import StructuredData from '../components/StructuredData.astro';
 import { SITE_URL } from '../lib/seo';
 
-const title = 'aic.contact | The AI Contact — Premium Domain';
+const title = 'aic.contact — Premium 3-Letter AI Domain for Sale';
 const description =
-  'aic.contact — The definitive AI Contact. A premium, ultra-short domain for artificial intelligence consulting, personal brands, agencies, and professional connection in the AI era.';
+  'aic.contact is for sale for $4,444 USD. Own the shortest, most memorable AI contact domain — ideal for AI consultants, agencies, and thought leaders. Escrow-protected transfer.';
 const ogImage = 'https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/581e6a5a-e4eb-4a01-a5d3-e85e52022d00/public';
 const heroBgImage = 'https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/581e6a5a-e4eb-4a01-a5d3-e85e52022d00/public';
 const canonical = `${SITE_URL}/`;
+const salesEmail = 'sales@desertrich.com';
+
+const faqs = [
+  {
+    q: 'Is aic.contact for sale?',
+    a: 'Yes. aic.contact is available for immediate acquisition. It is a premium ultra-short .contact domain with built-in meaning, offered as a one-time purchase with full ownership transfer.',
+  },
+  {
+    q: 'How much does aic.contact cost?',
+    a: 'The listed acquisition price is $4,444 USD, one-time. Flexible terms and serious offers are considered — use the inquiry form below to submit an offer.',
+  },
+  {
+    q: 'How do I buy aic.contact safely?',
+    a: 'Every transaction is completed through Escrow.com. Your payment is held securely by Escrow until the domain is transferred to your registrar and you confirm control — neither side is exposed to risk.',
+  },
+  {
+    q: 'How fast is the ownership transfer?',
+    a: 'Once escrow is funded, the transfer is initiated immediately and typically completes within 24–48 hours, depending on your registrar. You receive full control of the domain at completion.',
+  },
+  {
+    q: 'What can I use aic.contact for?',
+    a: 'aic.contact is ideal for AI consulting and advisory firms, personal AI brands and thought leaders, AI agencies and studios, product contact/support domains, professional AI networks, and enterprise AI initiatives.',
+  },
+  {
+    q: 'What does AIC stand for?',
+    a: 'AIC stands for Artificial Intelligence Contact — the shortest, most authoritative way to say it. Three letters, built-in meaning, instantly understood by anyone in the AI industry.',
+  },
+];
 ---
 
 <Layout title={title} description={description} ogImage={ogImage}>
@@ -21,26 +49,43 @@ const canonical = `${SITE_URL}/`;
       '@graph': [
         {
           '@type': 'WebSite',
+          '@id': `${canonical}#website`,
           name: 'aic.contact',
           description: description,
           url: canonical,
+          inLanguage: 'en-US',
+          publisher: { '@id': `${canonical}#organization` },
+        },
+        {
+          '@type': 'Organization',
+          '@id': `${canonical}#organization`,
+          name: 'aic.contact',
+          description: 'Premium domain brokerage offering the ultra-short AI contact domain aic.contact for acquisition.',
+          url: canonical,
+          email: salesEmail,
+          logo: { '@type': 'ImageObject', url: ogImage },
         },
         {
           '@type': 'Product',
+          '@id': `${canonical}#product`,
           name: 'aic.contact Domain',
-          description: 'Premium domain name for artificial intelligence consulting, agencies, and professional connection. An ultra-short .contact domain with built-in meaning.',
+          description:
+            'Premium ultra-short .contact domain name with built-in meaning — Artificial Intelligence Contact. Ideal for AI consulting, agencies, personal brands, and product contact layers. One-time acquisition with full ownership transfer.',
           image: ogImage,
           brand: {
             '@type': 'Brand',
             name: 'aic.contact',
           },
+          category: 'Domain Names',
           offers: {
             '@type': 'Offer',
             availability: 'https://schema.org/InStock',
             price: '4444',
             priceCurrency: 'USD',
+            priceValidUntil: '2027-12-31',
             url: canonical,
             businessFunction: 'https://schema.org/Sell',
+            seller: { '@id': `${canonical}#organization` },
             hasMerchantReturnPolicy: {
               '@type': 'MerchantReturnPolicy',
               returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
@@ -85,6 +130,18 @@ const canonical = `${SITE_URL}/`;
               },
             },
           },
+        },
+        {
+          '@type': 'FAQPage',
+          '@id': `${canonical}#faq`,
+          mainEntity: faqs.map((item) => ({
+            '@type': 'Question',
+            name: item.q,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: item.a,
+            },
+          })),
         },
       ],
     }}
@@ -357,8 +414,32 @@ const canonical = `${SITE_URL}/`;
     </div>
   </section>
 
+  <!-- FAQ Section (SEO content + FAQPage schema) -->
+  <section id="faq" class="bg-white/5 border-y border-white/10 py-16">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <div class="inline-block px-4 py-1 rounded-full bg-white/5 text-xs tracking-[1.5px] font-medium text-white/60 mb-3">FAQ</div>
+        <h2 class="section-header tracking-[-0.03em]">Questions from serious buyers.</h2>
+      </div>
+
+      <div class="space-y-3">
+        {faqs.map((item, i) => (
+          <details class="group glass rounded-2xl border border-white/10 overflow-hidden" open={i === 0}>
+            <summary class="flex items-center justify-between gap-4 cursor-pointer px-6 py-5 select-none">
+              <h3 class="font-semibold text-lg tracking-tight text-white/90 group-open:text-white">{item.q}</h3>
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 shrink-0 text-white/50 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </summary>
+            <p class="px-6 pb-5 -mt-1 text-white/70 leading-relaxed">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- Inquiry / Contact Section -->
-  <section id="inquire" class="bg-white/5 border-t border-white/10 py-16">
+  <section id="inquire" class="py-16">
     <div class="max-w-2xl mx-auto px-6">
       <div class="text-center mb-10">
         <h2 class="text-4xl font-semibold tracking-tight">Ready to own the AI Contact?</h2>
@@ -429,8 +510,11 @@ const canonical = `${SITE_URL}/`;
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21V3" />
           </svg>
         </div>
-        <h3 class="text-2xl font-semibold tracking-tight mb-2">Inquiry Received</h3>
-        <p class="text-white/70 max-w-xs mx-auto">Thank you. A member of our team will personally respond within 24 hours to discuss next steps.</p>
+        <h3 class="text-2xl font-semibold tracking-tight mb-2">Your inquiry is ready to send</h3>
+        <p class="text-white/70 max-w-md mx-auto">
+          Your email app should have opened with your inquiry pre-filled — hit send and we'll respond personally within 24 hours.
+          If it didn't open, email <a href="mailto:sales@desertrich.com" class="text-[#22f5ff] hover:underline font-medium">sales@desertrich.com</a> directly.
+        </p>
         <button type="button" onclick="resetForm()"
                 class="mt-6 text-sm font-medium text-white/60 hover:text-white underline underline-offset-4">Submit another inquiry</button>
       </div>
@@ -442,6 +526,19 @@ const canonical = `${SITE_URL}/`;
     <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-y-3 text-xs text-white/50">
       <div>Transactions secured via <span class="font-medium text-white/70">Escrow.com</span> &bull; Premium domain brokerage</div>
       <div>&copy; 2026 aic.contact &bull; All rights reserved</div>
+    </div>
+  </div>
+
+  <!-- Sticky mobile CTA (hidden once the inquiry form is in view) -->
+  <div id="mobile-cta" class="md:hidden fixed inset-x-0 bottom-0 z-40 translate-y-full transition-transform duration-300 pointer-events-none">
+    <div class="mx-3 mb-3 flex items-center justify-between gap-3 rounded-2xl border border-white/15 bg-[#0a0a0f]/95 backdrop-blur-[20px] px-4 py-3 shadow-2xl pointer-events-auto">
+      <div class="min-w-0">
+        <div class="text-sm font-semibold text-white leading-tight truncate">aic.contact</div>
+        <div class="text-[11px] text-white/50">$4,444 &bull; Escrow protected</div>
+      </div>
+      <a href="#inquire" class="shrink-0 inline-flex items-center px-5 py-2.5 rounded-xl bg-white text-[#0a0a0f] text-sm font-semibold active:scale-[0.985] transition-all">
+        Inquire Now
+      </a>
     </div>
   </div>
 </Layout>
@@ -486,7 +583,7 @@ const canonical = `${SITE_URL}/`;
     });
   }
 
-  // Form handling
+  // Form handling — compose a pre-filled inquiry email so submissions actually reach us
   function initForm() {
     const form = document.getElementById('inquiry-form');
     const successMsg = document.getElementById('success-message');
@@ -499,25 +596,42 @@ const canonical = `${SITE_URL}/`;
       const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
       if (!submitBtn) return;
       const originalText = submitBtn.innerHTML;
-      submitBtn.innerHTML = 'Processing...';
+      submitBtn.innerHTML = 'Preparing your inquiry...';
       submitBtn.disabled = true;
 
+      const val = (id: string) => (document.getElementById(id) as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null)?.value?.trim() ?? '';
+      const subject = `Acquisition Inquiry — aic.contact${val('offer') ? ` (Offer: $${val('offer')})` : ''}`;
+      const body = [
+        'Hello,',
+        '',
+        'I am interested in acquiring aic.contact.',
+        '',
+        `Name: ${val('name')}`,
+        `Email: ${val('email')}`,
+        val('org') ? `Organization / Intended use: ${val('org')}` : '',
+        val('offer') ? `Offer: $${val('offer')} USD` : 'Offer: Listed price ($4,444 USD)',
+        val('timeline') ? `Timeline: ${document.getElementById('timeline')?.selectedOptions?.[0]?.text ?? val('timeline')}` : '',
+        '',
+        val('message') ? `Message:\n${val('message')}` : 'Message: Please send next steps and escrow details.',
+        '',
+        'Best regards,',
+        val('name'),
+      ]
+        .filter((line) => line !== '')
+        .join('\r\n');
+
+      const mailto = `mailto:sales@desertrich.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
       setTimeout(() => {
+        window.location.href = mailto;
         form.style.display = 'none';
         if (successMsg) {
           successMsg.classList.remove('hidden');
           successMsg.classList.add('block');
         }
-
-        console.log('%c[aic.contact] New inquiry submitted:', 'color:#64748b', {
-          name: (document.getElementById('name') as HTMLInputElement)?.value,
-          email: (document.getElementById('email') as HTMLInputElement)?.value,
-          org: (document.getElementById('org') as HTMLInputElement)?.value,
-          offer: (document.getElementById('offer') as HTMLInputElement)?.value,
-          timeline: (document.getElementById('timeline') as HTMLSelectElement)?.value,
-          message: (document.getElementById('message') as HTMLTextAreaElement)?.value,
-        });
-      }, 850);
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }, 400);
     });
   }
 
@@ -541,11 +655,39 @@ const canonical = `${SITE_URL}/`;
     }
   }
 
+  // Sticky mobile CTA: show after scrolling past hero, hide when inquiry form is visible
+  function initMobileCta() {
+    const cta = document.getElementById('mobile-cta');
+    const inquire = document.getElementById('inquire');
+    if (!cta) return;
+
+    let inquireVisible = false;
+    if (inquire && 'IntersectionObserver' in window) {
+      new IntersectionObserver(
+        (entries) => {
+          inquireVisible = entries[0]?.isIntersecting ?? false;
+          update();
+        },
+        { threshold: 0.05 }
+      ).observe(inquire);
+    }
+
+    function update() {
+      const show = window.scrollY > 560 && !inquireVisible;
+      cta.classList.toggle('translate-y-full', !show);
+      cta.classList.toggle('pointer-events-none', !show);
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+
   // Initialize everything
   function initializeSite() {
     initNavbar();
     initSmoothScroll();
     initForm();
+    initMobileCta();
 
     console.log('%c[aic.contact] Premium domain landing page initialized.', 'color:#475569; font-size: 9px');
 

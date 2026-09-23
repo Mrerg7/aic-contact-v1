@@ -16,3 +16,8 @@ custom_domain = true
 directory = "./dist"
 binding = "ASSETS"
 html_handling = "auto-trailing-slash"
+not_found_handling = "404-page"
+# Worker must run BEFORE assets so www/http 301s actually fire.
+# Default asset-first routing was bypassing the redirect logic in worker.ts,
+# which caused the "Alternate page with proper canonical tag" GSC issue.
+run_worker_first = true
