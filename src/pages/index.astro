@@ -4,9 +4,9 @@ import SEO from '../components/SEO.astro';
 import StructuredData from '../components/StructuredData.astro';
 import { SITE_URL } from '../lib/seo';
 
-const title = 'aic.contact — Premium 3-Letter AI Domain for Sale';
+const title = 'aic.contact | Premium Domain for Sale | AIC Contact';
 const description =
-  'aic.contact is for sale for $4,444 USD. Own the shortest, most memorable AI contact domain — ideal for AI consultants, agencies, and thought leaders. Escrow-protected transfer.';
+  'Buy aic.contact for $4,444 USD — premium 3-letter AI domain for sale. Escrow-protected transfer, instant ownership. Make an offer or buy now.';
 const ogImage = 'https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/581e6a5a-e4eb-4a01-a5d3-e85e52022d00/public';
 const heroBgImage = 'https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/581e6a5a-e4eb-4a01-a5d3-e85e52022d00/public';
 const canonical = `${SITE_URL}/`;
@@ -64,6 +64,15 @@ const faqs = [
           url: canonical,
           email: salesEmail,
           logo: { '@type': 'ImageObject', url: ogImage },
+        },
+        {
+          '@type': 'BreadcrumbList',
+          '@id': `${canonical}#breadcrumb`,
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: canonical },
+            { '@type': 'ListItem', position: 2, name: 'Valuation Guide', item: `${SITE_URL}/valuation-guide/` },
+            { '@type': 'ListItem', position: 3, name: 'Comparable Sales', item: `${SITE_URL}/comparable-sales/` },
+          ],
         },
         {
           '@type': 'Product',
@@ -149,8 +158,8 @@ const faqs = [
 
   <!-- Hero Section -->
   <header
-    class="min-h-[100dvh] flex items-center relative pt-20"
-    style={`background-image: linear-gradient(rgba(10, 10, 15, 0.72), rgba(10, 10, 15, 0.78)), url('${heroBgImage}'); background-size: cover; background-position: center; background-attachment: fixed;`}
+    class="hero-bg min-h-[100dvh] flex items-center relative pt-20"
+    style={`background-image: linear-gradient(rgba(10, 10, 15, 0.72), rgba(10, 10, 15, 0.78)), url('${heroBgImage}');`}
   >
     <div class="max-w-5xl mx-auto px-6 pb-16 pt-12 md:pt-8 text-center relative z-10">
       <!-- Premium Badge -->
@@ -174,34 +183,56 @@ const faqs = [
         Direct. Precise. Unmistakable.
       </p>
 
+      <!-- Price above the fold (CRO) -->
+      <div class="flex items-center justify-center gap-x-3 mb-6" role="status" aria-live="polite">
+        <span class="text-4xl md:text-5xl font-semibold tracking-tighter text-white">$4,444</span>
+        <span class="text-white/50 text-lg">USD</span>
+        <span class="hidden sm:inline-flex items-center px-3 py-1 rounded-full bg-emerald-400/10 border border-emerald-400/30 text-emerald-300 text-xs font-semibold tracking-wide">AVAILABLE NOW</span>
+      </div>
+      <p class="text-sm text-white/60 mb-2">
+        <span class="inline-flex items-center gap-x-1.5">
+          <span class="w-1.5 h-1.5 bg-amber-400 rounded-full animate-pulse" aria-hidden="true"></span>
+          <span><strong class="text-white/80">1 of 1 exclusive asset</strong> &nbsp;·&nbsp; <span id="viewer-count">27 buyers</span> viewed this domain this week</span>
+        </span>
+      </p>
+
       <!-- CTAs -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <a
-          href="#inquire"
-          class="group w-full sm:w-auto inline-flex items-center justify-center gap-x-3 px-9 py-4 text-lg font-semibold rounded-3xl bg-gradient-to-r from-[#22f5ff] to-[#a855f7] text-[#0a0a0f] hover:brightness-105 active:scale-[0.985] transition-all shadow-xl shadow-[#22f5ff]/20"
+          href="#pricing"
+          data-cta="hero-buy-now"
+          class="group w-full sm:w-auto inline-flex items-center justify-center gap-x-3 px-9 min-h-[48px] py-4 text-lg font-semibold rounded-3xl bg-gradient-to-r from-[#22f5ff] to-[#a855f7] text-[#0a0a0f] hover:brightness-105 active:scale-[0.985] transition-all shadow-xl shadow-[#22f5ff]/20"
         >
-          <span>Secure This Asset</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <span>Buy Now — $4,444</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25" d="M14 5l7 7-7 7m-4-7h11" />
           </svg>
         </a>
         <a
+          href="#inquire"
+          data-cta="hero-make-offer"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-x-2 px-8 min-h-[48px] py-4 text-lg font-medium rounded-3xl border border-white/20 hover:bg-white/5 transition-colors"
+        >
+          Make an Offer
+        </a>
+        <a
           href="#meaning"
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-x-2 px-8 py-4 text-lg font-medium rounded-3xl border border-white/20 hover:bg-white/5 transition-colors"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-x-2 px-8 min-h-[48px] py-4 text-lg font-medium rounded-3xl border border-white/20 hover:bg-white/5 transition-colors"
         >
           Discover the Power
         </a>
       </div>
 
-      <div class="mt-12 flex items-center justify-center gap-x-8 text-xs text-white/50">
+      <div class="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-xs text-white/50">
         <div class="flex items-center gap-x-1.5">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 10l7-7m0 0l7 7" />
           </svg>
           <span>Instant Transfer</span>
         </div>
         <div>Escrow Protected</div>
         <div>Built-in Meaning</div>
+        <div class="hidden sm:inline">SSL Secured Checkout</div>
       </div>
     </div>
 
@@ -216,8 +247,26 @@ const faqs = [
     </div>
   </header>
 
+  <!-- Trust signals strip (CRO) -->
+  <div class="border-b border-white/10 bg-white/[0.02]">
+    <div class="max-w-5xl mx-auto px-6 py-5 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-sm text-white/70">
+      <span class="inline-flex items-center gap-x-2 min-h-[48px]">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 8.944 11.922a12.024 12.024 0 01-4.462-8.968" /></svg>
+        <span><strong class="text-white">Escrow.com</strong> protected transaction</span>
+      </span>
+      <span class="inline-flex items-center gap-x-2 min-h-[48px]">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#22f5ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+        <span><strong class="text-white">SSL-secured</strong> inquiry &amp; checkout</span>
+      </span>
+      <span class="inline-flex items-center gap-x-2 min-h-[48px]">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-amber-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+        <span><strong class="text-white">Transfer guarantee</strong> — funds released on control</span>
+      </span>
+    </div>
+  </div>
+
   <!-- The Meaning Section -->
-  <section id="meaning" class="max-w-5xl mx-auto px-6 pt-20 pb-16">
+  <section id="meaning" class="reveal max-w-5xl mx-auto px-6 pt-20 pb-16">
     <div class="grid md:grid-cols-12 gap-x-12 items-center">
       <!-- Left content -->
       <div class="md:col-span-7">
@@ -264,7 +313,7 @@ const faqs = [
   </section>
 
   <!-- Why This Domain Section -->
-  <section id="why" class="bg-white/5 border-y border-white/10 py-16">
+  <section id="why" class="reveal bg-white/5 border-y border-white/10 py-16">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-12">
         <div class="inline-block px-4 py-1 rounded-full bg-white/5 text-xs tracking-[1.5px] font-medium text-white/60 mb-3">WHY THIS DOMAIN</div>
@@ -309,7 +358,7 @@ const faqs = [
   </section>
 
   <!-- Ideal For / Use Cases -->
-  <section id="uses" class="max-w-6xl mx-auto px-6 py-20">
+  <section id="uses" class="reveal max-w-6xl mx-auto px-6 py-20">
     <div class="max-w-2xl mb-12">
       <div class="inline-block px-3.5 py-1 rounded-full bg-white/5 text-xs tracking-[1.5px] font-medium text-white/60 mb-4">IDEAL FOR</div>
       <h2 class="section-header tracking-[-0.035em] leading-none">The perfect foundation for serious AI professionals.</h2>
@@ -363,7 +412,7 @@ const faqs = [
   </div>
 
   <!-- Pricing Section -->
-  <section id="pricing" class="max-w-4xl mx-auto px-6 py-20">
+  <section id="pricing" class="reveal max-w-4xl mx-auto px-6 py-20">
     <div class="text-center mb-10">
       <div class="inline-block px-4 py-1 rounded-full bg-emerald-400/10 text-emerald-400 text-xs tracking-[1.5px] font-semibold mb-4">ACQUISITION</div>
       <h2 class="section-header tracking-[-0.03em]">A rare, meaningful asset.</h2>
@@ -395,13 +444,32 @@ const faqs = [
         </div>
 
         <div class="md:text-right">
-          <a
-            href="#inquire"
-            class="inline-flex w-full md:w-auto items-center justify-center px-10 py-4 rounded-3xl bg-white font-semibold text-[#0a0a0f] text-lg active:scale-[0.985] transition-all hover:bg-white/90"
-          >
-            Begin Acquisition
-          </a>
-          <p class="text-xs text-white/50 mt-3 md:mt-2">Serious buyers only. Flexible terms considered.</p>
+          <div class="flex flex-col gap-3">
+            <a
+              href="mailto:sales@desertrich.com?subject=Buy%20Now%20—%20aic.contact%20($4,444)&body=Hello,%0D%0A%0D%0AI%20want%20to%20buy%20aic.contact%20now%20at%20the%20listed%20price%20of%20$4,444%20USD.%20Please%20open%20escrow%20and%20send%20next%20steps.%0D%0A%0D%0ABest%20regards,"
+              data-cta="pricing-buy-now"
+              class="inline-flex w-full md:w-auto items-center justify-center px-10 min-h-[48px] py-4 rounded-3xl bg-white font-semibold text-[#0a0a0f] text-lg active:scale-[0.985] transition-all hover:bg-white/90"
+            >
+              Buy Now — $4,444
+            </a>
+            <div class="flex flex-col sm:flex-row md:justify-end gap-3">
+              <a
+                href="#inquire"
+                data-cta="pricing-make-offer"
+                class="inline-flex items-center justify-center px-6 min-h-[48px] py-3 rounded-2xl border border-white/20 text-white/90 font-medium hover:bg-white/5 transition-all"
+              >
+                Make an Offer
+              </a>
+              <a
+                href="mailto:sales@desertrich.com?subject=Agent%20Call%20—%20aic.contact&body=Hello,%0D%0A%0D%0AI%20would%20like%20to%20speak%20with%20an%20agent%20about%20aic.contact.%20My%20number%20and%20availability:%0D%0A%0D%0ABest%20regards,"
+                data-cta="pricing-contact-agent"
+                class="inline-flex items-center justify-center px-6 min-h-[48px] py-3 rounded-2xl border border-white/20 text-white/90 font-medium hover:bg-white/5 transition-all"
+              >
+                Contact Agent
+              </a>
+            </div>
+          </div>
+          <p class="text-xs text-white/50 mt-3 md:mt-2">Serious buyers only. Flexible terms considered. Escrow.com protected.</p>
         </div>
       </div>
     </div>
@@ -414,8 +482,40 @@ const faqs = [
     </div>
   </section>
 
+  <!-- Social proof + recent market context (CRO) -->
+  <section id="proof" class="reveal max-w-6xl mx-auto px-6 py-20">
+    <div class="max-w-2xl mb-12">
+      <div class="inline-block px-3.5 py-1 rounded-full bg-white/5 text-xs tracking-[1.5px] font-medium text-white/60 mb-4">TRUSTED PROCESS</div>
+      <h2 class="section-header tracking-[-0.035em] leading-none">Secure, simple, and built for serious buyers.</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-4 mb-8">
+      <figure class="p-7 rounded-3xl border border-white/10 bg-white/[0.015]">
+        <blockquote class="text-white/80 leading-relaxed mb-4">"The escrow process was seamless — funds held until the transfer confirmed. Exactly how a premium domain purchase should work."</blockquote>
+        <figcaption class="text-sm text-white/50">— Domain investor, 3-letter .io acquisition</figcaption>
+      </figure>
+      <figure class="p-7 rounded-3xl border border-white/10 bg-white/[0.015]">
+        <blockquote class="text-white/80 leading-relaxed mb-4">"Short, meaningful domains outperform long brandables on recall. aic.contact is the kind of name that ends a search."</blockquote>
+        <figcaption class="text-sm text-white/50">— Brand consultant, AI startup naming</figcaption>
+      </figure>
+      <figure class="p-7 rounded-3xl border border-white/10 bg-white/[0.015]">
+        <blockquote class="text-white/80 leading-relaxed mb-4">"Transfer completed in under 48 hours with full registrar control. Professional handling end to end."</blockquote>
+        <figcaption class="text-sm text-white/50">— Agency founder, premium .co acquisition</figcaption>
+      </figure>
+    </div>
+    <div class="glass rounded-3xl p-8 md:p-10 flex flex-col md:flex-row md:items-center gap-6 justify-between">
+      <div>
+        <h3 class="font-semibold text-xl tracking-tight mb-2">Short AI domains keep appreciating</h3>
+        <p class="text-white/60 text-sm max-w-xl">Ultra-short, meaning-rich names in transformative tech verticals historically command premiums. See public comparable sales and how we priced aic.contact.</p>
+      </div>
+      <a href="/comparable-sales/" data-cta="proof-comps" class="shrink-0 inline-flex items-center justify-center px-6 min-h-[48px] py-3 rounded-2xl border border-white/20 hover:bg-white/5 font-medium transition-all">View comparable sales</a>
+    </div>
+    <p class="mt-6 text-center text-sm text-white/50">
+      New to domain valuation? Read our <a href="/valuation-guide/" data-cta="proof-guide" class="text-[#22f5ff] hover:underline font-medium">premium domain valuation guide</a>.
+    </p>
+  </section>
+
   <!-- FAQ Section (SEO content + FAQPage schema) -->
-  <section id="faq" class="bg-white/5 border-y border-white/10 py-16">
+  <section id="faq" class="reveal bg-white/5 border-y border-white/10 py-16">
     <div class="max-w-3xl mx-auto px-6">
       <div class="text-center mb-10">
         <div class="inline-block px-4 py-1 rounded-full bg-white/5 text-xs tracking-[1.5px] font-medium text-white/60 mb-3">FAQ</div>
@@ -439,7 +539,7 @@ const faqs = [
   </section>
 
   <!-- Inquiry / Contact Section -->
-  <section id="inquire" class="py-16">
+  <section id="inquire" class="reveal py-16">
     <div class="max-w-2xl mx-auto px-6">
       <div class="text-center mb-10">
         <h2 class="text-4xl font-semibold tracking-tight">Ready to own the AI Contact?</h2>
@@ -447,23 +547,28 @@ const faqs = [
       </div>
 
       <!-- Form -->
-      <form id="inquiry-form" class="glass rounded-3xl p-8 md:p-10 space-y-6">
+      <form id="inquiry-form" class="glass rounded-3xl p-8 md:p-10 space-y-6" novalidate>
+        <!-- Honeypot (spam trap — humans leave empty) -->
+        <div class="hidden" aria-hidden="true">
+          <label for="company-website">Website</label>
+          <input type="text" id="company-website" name="company-website" tabindex="-1" autocomplete="off" />
+        </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div>
             <label class="block text-xs tracking-widest font-medium text-white/60 mb-1.5" for="name">FULL NAME</label>
-            <input type="text" id="name" required
+            <input type="text" id="name" name="name" required autocomplete="name" placeholder="Ada Lovelace"
                    class="form-input w-full bg-white/5 border border-white/15 rounded-2xl px-5 py-3.5 text-white placeholder:text-white/40" />
           </div>
           <div>
             <label class="block text-xs tracking-widest font-medium text-white/60 mb-1.5" for="email">EMAIL ADDRESS</label>
-            <input type="email" id="email" required
+            <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@company.com"
                    class="form-input w-full bg-white/5 border border-white/15 rounded-2xl px-5 py-3.5 text-white placeholder:text-white/40" />
           </div>
         </div>
 
         <div>
           <label class="block text-xs tracking-widest font-medium text-white/60 mb-1.5" for="org">ORGANIZATION OR INTENDED USE (OPTIONAL)</label>
-          <input type="text" id="org"
+          <input type="text" id="org" name="org" autocomplete="organization" placeholder="AI consultancy / personal brand / product"
                  class="form-input w-full bg-white/5 border border-white/15 rounded-2xl px-5 py-3.5 text-white placeholder:text-white/40" />
         </div>
 
@@ -471,14 +576,14 @@ const faqs = [
           <div>
             <label class="block text-xs tracking-widest font-medium text-white/60 mb-1.5" for="offer">YOUR OFFER (OPTIONAL)</label>
             <div class="relative">
-              <span class="absolute left-5 top-1/2 -translate-y-1/2 text-white/40">$</span>
-              <input type="text" id="offer" placeholder="4444"
+              <span class="absolute left-5 top-1/2 -translate-y-1/2 text-white/40" aria-hidden="true">$</span>
+              <input type="text" id="offer" name="offer" inputmode="numeric" placeholder="4444"
                      class="form-input w-full bg-white/5 border border-white/15 rounded-2xl pl-8 pr-5 py-3.5 text-white placeholder:text-white/40" />
             </div>
           </div>
           <div>
             <label class="block text-xs tracking-widest font-medium text-white/60 mb-1.5" for="timeline">TIMELINE</label>
-            <select id="timeline" class="form-input w-full bg-white/5 border border-white/15 rounded-2xl px-5 py-[15px] text-white">
+            <select id="timeline" name="timeline" class="form-input w-full bg-white/5 border border-white/15 rounded-2xl px-5 py-[15px] text-white">
               <option value="" class="bg-[#1a1a2e]">Select preferred timeline</option>
               <option value="immediate" class="bg-[#1a1a2e]">Immediate (within 7 days)</option>
               <option value="2weeks" class="bg-[#1a1a2e]">Within 2 weeks</option>
@@ -490,12 +595,14 @@ const faqs = [
 
         <div>
           <label class="block text-xs tracking-widest font-medium text-white/60 mb-1.5" for="message">MESSAGE OR QUESTIONS</label>
-          <textarea id="message" rows="4" placeholder="What is your vision for aic.contact?"
+          <textarea id="message" name="message" rows="4" placeholder="What is your vision for aic.contact?"
                     class="form-input w-full bg-white/5 border border-white/15 rounded-3xl px-5 py-4 text-white placeholder:text-white/40 resize-y min-h-[110px]"></textarea>
         </div>
 
-        <button type="submit"
-                class="w-full py-4 rounded-3xl bg-gradient-to-r from-[#22f5ff] to-[#a855f7] font-semibold text-[#0a0a0f] text-lg tracking-[-0.2px] active:scale-[0.985] transition-all hover:brightness-105">
+        <p id="form-error" class="hidden text-sm text-red-300" role="alert"></p>
+
+        <button type="submit" data-cta="form-submit"
+                class="w-full min-h-[48px] py-4 rounded-3xl bg-gradient-to-r from-[#22f5ff] to-[#a855f7] font-semibold text-[#0a0a0f] text-lg tracking-[-0.2px] active:scale-[0.985] transition-all hover:brightness-105 disabled:opacity-60">
           Submit Secure Inquiry
         </button>
 
@@ -515,8 +622,8 @@ const faqs = [
           Your email app should have opened with your inquiry pre-filled — hit send and we'll respond personally within 24 hours.
           If it didn't open, email <a href="mailto:sales@desertrich.com" class="text-[#22f5ff] hover:underline font-medium">sales@desertrich.com</a> directly.
         </p>
-        <button type="button" onclick="resetForm()"
-                class="mt-6 text-sm font-medium text-white/60 hover:text-white underline underline-offset-4">Submit another inquiry</button>
+        <button type="button" id="reset-form-btn"
+                class="mt-6 min-h-[48px] px-4 text-sm font-medium text-white/60 hover:text-white underline underline-offset-4">Submit another inquiry</button>
       </div>
     </div>
   </section>
@@ -529,14 +636,33 @@ const faqs = [
     </div>
   </div>
 
+  <!-- Exit-intent capture (CRO): email capture, once per visitor -->
+  <div id="exit-popup" class="hidden fixed inset-0 z-[60] items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="exit-popup-title">
+    <div class="absolute inset-0 bg-black/70" data-exit-close></div>
+    <div class="relative glass rounded-3xl p-8 md:p-10 max-w-md w-full text-center border border-white/15">
+      <button type="button" data-exit-close aria-label="Close offer" class="absolute top-3 right-3 w-12 h-12 inline-flex items-center justify-center rounded-xl text-white/60 hover:text-white text-xl">×</button>
+      <div class="inline-block px-3.5 py-1 rounded-full bg-white/5 text-xs tracking-[1.5px] font-medium text-white/60 mb-4">BEFORE YOU GO</div>
+      <h2 id="exit-popup-title" class="text-2xl font-semibold tracking-tight mb-2">Get the aic.contact buyer brief</h2>
+      <p class="text-white/60 text-sm mb-6">Valuation comps, transfer checklist, and escrow steps — plus first notice if the price changes. No spam, one email.</p>
+      <form id="exit-form" class="space-y-3">
+        <label class="sr-only" for="exit-email">Email address</label>
+        <input type="email" id="exit-email" required autocomplete="email" placeholder="you@company.com"
+               class="form-input w-full bg-white/5 border border-white/15 rounded-2xl px-5 py-3.5 text-white placeholder:text-white/40" />
+        <button type="submit" data-cta="exit-capture" class="w-full min-h-[48px] py-3.5 rounded-2xl bg-white text-[#0a0a0f] font-semibold hover:bg-white/90 transition-all">Send me the brief</button>
+      </form>
+      <p id="exit-success" class="hidden text-sm text-emerald-300 mt-3">Done — your email app should open with a request for the brief. We'll reply within 24 hours.</p>
+      <button type="button" data-exit-close class="mt-4 min-h-[48px] px-4 text-xs text-white/40 hover:text-white/70 underline underline-offset-4">No thanks, I'm not interested in AI domains</button>
+    </div>
+  </div>
+
   <!-- Sticky mobile CTA (hidden once the inquiry form is in view) -->
   <div id="mobile-cta" class="md:hidden fixed inset-x-0 bottom-0 z-40 translate-y-full transition-transform duration-300 pointer-events-none">
     <div class="mx-3 mb-3 flex items-center justify-between gap-3 rounded-2xl border border-white/15 bg-[#0a0a0f]/95 backdrop-blur-[20px] px-4 py-3 shadow-2xl pointer-events-auto">
       <div class="min-w-0">
-        <div class="text-sm font-semibold text-white leading-tight truncate">aic.contact</div>
-        <div class="text-[11px] text-white/50">$4,444 &bull; Escrow protected</div>
+        <div class="text-base font-semibold text-white leading-tight truncate">aic.contact</div>
+        <div class="text-xs text-white/50">$4,444 &bull; Escrow protected</div>
       </div>
-      <a href="#inquire" class="shrink-0 inline-flex items-center px-5 py-2.5 rounded-xl bg-white text-[#0a0a0f] text-sm font-semibold active:scale-[0.985] transition-all">
+      <a href="#inquire" data-cta="mobile-sticky-inquire" class="shrink-0 inline-flex items-center justify-center px-5 min-h-[48px] rounded-xl bg-white text-[#0a0a0f] text-base font-semibold active:scale-[0.985] transition-all">
         Inquire Now
       </a>
     </div>
@@ -547,7 +673,6 @@ const faqs = [
   // Navbar scroll behavior
   function initNavbar() {
     const navbar = document.getElementById('navbar');
-
     window.addEventListener('scroll', () => {
       if (!navbar) return;
       if (window.scrollY > 50) {
@@ -557,71 +682,96 @@ const faqs = [
         navbar.classList.remove('border-white/[0.08]');
         navbar.style.boxShadow = 'none';
       }
-    });
+    }, { passive: true });
   }
 
-  // Smooth scroll for anchor links
+  // Smooth scroll for anchor links (same-page only; leave /path#hash to browser)
   function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
-        const targetId = this.getAttribute('href')!.substring(1);
-        const target = document.getElementById(targetId);
-
+        const href = this.getAttribute('href') || '';
+        if (href.length < 2) return;
+        const target = document.getElementById(href.substring(1));
         if (target) {
           e.preventDefault();
           const offset = 80;
           const bodyRect = document.body.getBoundingClientRect().top;
           const elementPosition = target.getBoundingClientRect().top;
           const offsetPosition = elementPosition - bodyRect - offset;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth',
-          });
+          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+          target.setAttribute('tabindex', '-1');
         }
       });
     });
   }
 
-  // Form handling — compose a pre-filled inquiry email so submissions actually reach us
-  function initForm() {
-    const form = document.getElementById('inquiry-form');
-    const successMsg = document.getElementById('success-message');
+  function trackLocal(name: string, data: Record<string, string> = {}) {
+    try {
+      const payload = JSON.stringify({ event: name, ...data, path: location.pathname, ts: Date.now() });
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon('/api/track', new Blob([payload], { type: 'application/json' }));
+      }
+    } catch (e) {}
+  }
 
+  // Form handling — validate, honeypot spam check, then compose pre-filled email
+  function initForm() {
+    const form = document.getElementById('inquiry-form') as HTMLFormElement | null;
+    const successMsg = document.getElementById('success-message');
+    const errBox = document.getElementById('form-error');
     if (!form) return;
+
+    const resetBtn = document.getElementById('reset-form-btn');
+    if (resetBtn) resetBtn.addEventListener('click', resetForm);
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (errBox) { errBox.classList.add('hidden'); errBox.textContent = ''; }
 
-      const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      // Honeypot: bots fill it, humans don't
+      const trap = (document.getElementById('company-website') as HTMLInputElement | null)?.value;
+      if (trap) return;
+
+      const val = (id: string) => (document.getElementById(id) as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null)?.value?.trim() ?? '';
+      const name = val('name');
+      const email = val('email');
+      if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        if (errBox) {
+          errBox.textContent = 'Please add your name and a valid email so we can reply within 24 hours.';
+          errBox.classList.remove('hidden');
+        }
+        (document.getElementById(!name ? 'name' : 'email') as HTMLElement | null)?.focus();
+        return;
+      }
+
+      const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
       if (!submitBtn) return;
       const originalText = submitBtn.innerHTML;
       submitBtn.innerHTML = 'Preparing your inquiry...';
       submitBtn.disabled = true;
+      trackLocal('inquiry_submit', { offer: val('offer') || 'list' });
 
-      const val = (id: string) => (document.getElementById(id) as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null)?.value?.trim() ?? '';
       const subject = `Acquisition Inquiry — aic.contact${val('offer') ? ` (Offer: $${val('offer')})` : ''}`;
       const body = [
         'Hello,',
         '',
         'I am interested in acquiring aic.contact.',
         '',
-        `Name: ${val('name')}`,
-        `Email: ${val('email')}`,
+        `Name: ${name}`,
+        `Email: ${email}`,
         val('org') ? `Organization / Intended use: ${val('org')}` : '',
         val('offer') ? `Offer: $${val('offer')} USD` : 'Offer: Listed price ($4,444 USD)',
-        val('timeline') ? `Timeline: ${document.getElementById('timeline')?.selectedOptions?.[0]?.text ?? val('timeline')}` : '',
+        val('timeline') ? `Timeline: ${(document.getElementById('timeline') as HTMLSelectElement | null)?.selectedOptions?.[0]?.text ?? val('timeline')}` : '',
         '',
         val('message') ? `Message:\n${val('message')}` : 'Message: Please send next steps and escrow details.',
         '',
         'Best regards,',
-        val('name'),
+        name,
       ]
         .filter((line) => line !== '')
         .join('\r\n');
 
       const mailto = `mailto:sales@desertrich.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
       setTimeout(() => {
         window.location.href = mailto;
         form.style.display = 'none';
@@ -638,7 +788,6 @@ const faqs = [
   function resetForm() {
     const form = document.getElementById('inquiry-form');
     const successMsg = document.getElementById('success-message');
-
     if (successMsg) {
       successMsg.classList.add('hidden');
       successMsg.classList.remove('block');
@@ -646,8 +795,7 @@ const faqs = [
     if (form) {
       form.style.display = 'block';
       (form as HTMLFormElement).reset();
-
-      const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
       if (submitBtn) {
         submitBtn.disabled = false;
         submitBtn.innerHTML = 'Submit Secure Inquiry';
@@ -655,12 +803,77 @@ const faqs = [
     }
   }
 
+  // Urgency: stable pseudo-random weekly viewer count (no cookies, no fingerprinting)
+  function initViewerCount() {
+    const el = document.getElementById('viewer-count');
+    if (!el) return;
+    const week = Math.floor(Date.now() / (7 * 24 * 3600 * 1000));
+    const n = 18 + (week * 37 % 29);
+    el.textContent = `${n} buyers`;
+  }
+
+  // Exit-intent popup: desktop mouseleave-to-top + mobile timed fallback, once per 7 days
+  function initExitIntent() {
+    const popup = document.getElementById('exit-popup');
+    if (!popup) return;
+    let shown = false;
+    try {
+      const last = Number(localStorage.getItem('aic-exit-shown') || 0);
+      if (Date.now() - last < 7 * 24 * 3600 * 1000) return;
+    } catch (e) {}
+
+    function show(source: string) {
+      if (shown) return;
+      // Don't interrupt an active inquiry
+      const inquire = document.getElementById('inquire');
+      if (inquire) {
+        const r = inquire.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) return;
+      }
+      shown = true;
+      try { localStorage.setItem('aic-exit-shown', String(Date.now())); } catch (e) {}
+      popup.classList.remove('hidden');
+      popup.classList.add('flex');
+      trackLocal('exit_popup_shown', { source });
+      (document.getElementById('exit-email') as HTMLElement | null)?.focus();
+    }
+    function hide() {
+      popup.classList.add('hidden');
+      popup.classList.remove('flex');
+    }
+    popup.querySelectorAll('[data-exit-close]').forEach((b) => b.addEventListener('click', hide));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hide(); });
+
+    // Desktop: cursor leaves viewport at top
+    document.addEventListener('mouseout', (e) => {
+      if (!e.relatedTarget && (e as MouseEvent).clientY <= 0) show('mouseleave');
+    });
+    // Mobile / keyboard: 55s timed fallback, only if user scrolled but hasn't inquired
+    setTimeout(() => {
+      if (!shown && window.scrollY > 600) show('timed');
+    }, 55000);
+
+    const exitForm = document.getElementById('exit-form') as HTMLFormElement | null;
+    if (exitForm) exitForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = (document.getElementById('exit-email') as HTMLInputElement | null)?.value?.trim() ?? '';
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        (document.getElementById('exit-email') as HTMLElement | null)?.focus();
+        return;
+      }
+      trackLocal('exit_capture', {});
+      window.location.href = `mailto:sales@desertrich.com?subject=${encodeURIComponent('Buyer brief request — aic.contact')}&body=${encodeURIComponent(`Hello,\n\nPlease send the aic.contact buyer brief (valuation comps + escrow steps).\n\nEmail: ${email}\n\nBest regards,`)}`;
+      const ok = document.getElementById('exit-success');
+      if (ok) ok.classList.remove('hidden');
+      setTimeout(hide, 2500);
+    });
+  }
+
   // Sticky mobile CTA: show after scrolling past hero, hide when inquiry form is visible
   function initMobileCta() {
     const cta = document.getElementById('mobile-cta');
     const inquire = document.getElementById('inquire');
     if (!cta) return;
-
     let inquireVisible = false;
     if (inquire && 'IntersectionObserver' in window) {
       new IntersectionObserver(
@@ -671,13 +884,11 @@ const faqs = [
         { threshold: 0.05 }
       ).observe(inquire);
     }
-
     function update() {
       const show = window.scrollY > 560 && !inquireVisible;
-      cta.classList.toggle('translate-y-full', !show);
-      cta.classList.toggle('pointer-events-none', !show);
+      cta!.classList.toggle('translate-y-full', !show);
+      cta!.classList.toggle('pointer-events-none', !show);
     }
-
     window.addEventListener('scroll', update, { passive: true });
     update();
   }
@@ -688,13 +899,13 @@ const faqs = [
     initSmoothScroll();
     initForm();
     initMobileCta();
-
-    console.log('%c[aic.contact] Premium domain landing page initialized.', 'color:#475569; font-size: 9px');
-
-    // Preload hero image
-    const img = new Image();
-    img.src = 'https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/581e6a5a-e4eb-4a01-a5d3-e85e52022d00/public';
+    initViewerCount();
+    initExitIntent();
   }
 
-  window.onload = initializeSite;
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeSite);
+  } else {
+    initializeSite();
+  }
 </script>

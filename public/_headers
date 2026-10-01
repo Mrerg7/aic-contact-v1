@@ -4,4 +4,13 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains
-  Link: <https://aic.contact/>; rel="canonical"
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://imagedelivery.net; connect-src 'self' https://cloudflareinsights.com; frame-ancestors 'none'
+  Cross-Origin-Opener-Policy: same-origin
+# NOTE: No global Link canonical header here — each page emits its own
+# <link rel="canonical"> via Layout.astro so /404/ etc. don't canonicalize to /.
+
+/_astro/*:
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon.svg:
+  Cache-Control: public, max-age=86400

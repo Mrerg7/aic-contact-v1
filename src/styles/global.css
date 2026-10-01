@@ -11,12 +11,32 @@
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Prevent iOS auto-zoom on form fields: 16px minimum */
+  input, select, textarea {
+    font-size: 16px;
+  }
+
+  :focus-visible {
+    outline: 2px solid #22f5ff;
+    outline-offset: 2px;
   }
 
   .font-display {
     font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
     font-weight: 600;
     letter-spacing: -0.025em;
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
@@ -39,6 +59,13 @@
     @apply text-[2.65rem] leading-[1.05] font-semibold tracking-[-0.04em];
   }
 
+  @media (max-width: 640px) {
+    .section-header {
+      font-size: 2rem;
+      line-height: 1.1;
+    }
+  }
+
   .domain-text {
     font-size: clamp(3rem, 9vw, 6.2rem);
     line-height: 0.9;
@@ -46,12 +73,14 @@
     letter-spacing: -0.07em;
     background: linear-gradient(90deg, #ffffff, #e0e7ff);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .premium-badge {
     background: linear-gradient(90deg, #22f5ff, #a855f7);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -68,6 +97,7 @@
 
   .form-input {
     @apply transition-all duration-200;
+    font-size: 16px;
   }
 
   .form-input:focus {
@@ -80,4 +110,98 @@
     @apply inline-flex items-center justify-center gap-x-3 rounded-3xl font-semibold transition-all active:scale-[0.985];
     background: linear-gradient(to right, #22f5ff, #a855f7);
   }
+
+  /* Scroll-triggered fade-in (added via .reveal + JS IntersectionObserver) */
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; }
+  }
+
+  /* Hero background: fixed attachment is a mobile perf killer + iOS bug.
+     Default to scroll; enable fixed only on fine-pointer desktops. */
+  .hero-bg {
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+  }
+
+  @media (min-width: 1024px) and (pointer: fine) {
+    .hero-bg {
+      background-attachment: fixed;
+    }
+  }
+
+  /* Screen-reader only (skip link target support even without Tailwind forms) */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+/* Light mode: keep brand accents, flip surfaces to light. Toggle via <html class="light-mode"> */
+.light-mode body,
+html.light-mode body {
+  background-color: #f8fafc;
+  color: #0a0a0f;
+}
+
+html.light-mode nav#navbar {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(10, 10, 15, 0.08) !important;
+}
+
+html.light-mode nav#navbar a,
+html.light-mode nav#navbar button {
+  color: #0a0a0f !important;
+}
+
+html.light-mode #mobile-menu {
+  background-color: #f8fafc !important;
+}
+
+html.light-mode #mobile-menu a {
+  color: #0a0a0f !important;
+}
+
+html.light-mode .glass {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(10, 10, 15, 0.1);
+}
+
+html.light-mode .text-white,
+html.light-mode .text-white\/90,
+html.light-mode .text-white\/80,
+html.light-mode .text-white\/70,
+html.light-mode .text-white\/60,
+html.light-mode .text-white\/50,
+html.light-mode .text-white\/40 {
+  color: #0a0a0f !important;
+}
+
+html.light-mode .bg-white\/5,
+html.light-mode .bg-white\/\[0\.015\],
+html.light-mode .bg-white\/\[0\.03\] {
+  background-color: rgba(10, 10, 15, 0.03) !important;
+}
+
+html.light-mode .border-white\/10,
+html.light-mode .border-white\/20 {
+  border-color: rgba(10, 10, 15, 0.12) !important;
 }

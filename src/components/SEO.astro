@@ -6,15 +6,21 @@ interface Props {
   description: string;
   ogImage?: string;
   pathname: string;
+  keywords?: string;
 }
 
-const { title, description, ogImage, pathname } = Astro.props;
+const { title, description, ogImage, pathname, keywords } = Astro.props;
 const canonical = canonicalUrl(pathname);
+const defaultKeywords =
+  'buy .contact domains, aic.contact for sale, premium domain names, AI domain for sale, short brandable domains, investment domains, domain marketplace';
 ---
 
 <meta name="title" content={title} />
 <meta name="description" content={description} />
-<meta name="robots" content="index, follow, max-image-preview:large" />
+{keywords || defaultKeywords ? <meta name="keywords" content={keywords ?? defaultKeywords} /> : null}
+<meta name="author" content="aic.contact" />
+<meta name="geo.region" content="US" />
+<!-- NOTE: robots owned by Layout.astro (supports noindex for 404) — do not duplicate here. -->
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
@@ -26,10 +32,12 @@ const canonical = canonicalUrl(pathname);
 {ogImage && <meta property="og:image" content={ogImage} />}
 {ogImage && <meta property="og:image:width" content="1200" />}
 {ogImage && <meta property="og:image:height" content="630" />}
+{ogImage && <meta property="og:image:alt" content="aic.contact — premium AI domain for sale" />}
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={canonical} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-{ogImage && <meta property="twitter:image" content={ogImage} />}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonical} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+{ogImage && <meta name="twitter:image" content={ogImage} />}
+{ogImage && <meta name="twitter:image:alt" content="aic.contact — premium AI domain for sale" />}

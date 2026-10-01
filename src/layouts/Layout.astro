@@ -6,44 +6,79 @@ interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  noindex?: boolean;
 }
 
-const { title, description = 'aic.contact is for sale for $4,444 USD. Own the shortest, most memorable AI contact domain — ideal for AI consultants, agencies, and thought leaders. Escrow-protected transfer.', ogImage } = Astro.props;
+const {
+  title,
+  description = 'aic.contact is for sale for $4,444 USD. Own the shortest, most memorable AI contact domain — ideal for AI consultants, agencies, and thought leaders. Escrow-protected transfer.',
+  ogImage,
+  noindex = false,
+} = Astro.props;
 const canonical = canonicalUrl(Astro.url.pathname);
+const heroPreload = 'https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/581e6a5a-e4eb-4a01-a5d3-e85e52022d00/public';
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#0a0a0f" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0a0f" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="author" content="aic.contact" />
+    {noindex
+      ? <meta name="robots" content="noindex, nofollow" />
+      : <meta name="robots" content="index, follow, max-image-preview:large" />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonical} />
 
     <!-- Google Site Verification -->
     <meta name="google-site-verification" content="u4sr-zy_LL5VyAeUE4b51WCdoN-AJHNHjanzPqrLVGs" />
 
-    <!-- Preconnect to CDN -->
-    <link rel="preconnect" href="https://imagedelivery.net" />
+    <!-- Performance: preconnect + hero preload (LCP) -->
+    <link rel="preconnect" href="https://imagedelivery.net" crossorigin />
+    <link rel="dns-prefetch" href="https://imagedelivery.net" />
+    <link rel="preload" as="image" href={heroPreload} fetchpriority="high" />
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts (display=swap, non-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    <!-- Theme init (no FOUC for dark/light toggle) -->
+    <script is:inline>
+      try {
+        const t = localStorage.getItem('aic-theme');
+        if (t === 'light') document.documentElement.classList.add('light-mode');
+      } catch (e) {}
+    </script>
 
     <title>{title}</title>
 
     <slot name="head" />
   </head>
   <body class="bg-[#0a0a0f] text-white overflow-x-hidden antialiased">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded-lg focus:text-base">Skip to content</a>
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/5 bg-[#0a0a0f]/95 backdrop-blur-[20px]">
+    <nav id="navbar" aria-label="Primary" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/5 bg-[#0a0a0f]/95 backdrop-blur-[20px]">
       <div class="max-w-6xl mx-auto px-6">
         <div class="flex items-center justify-between h-20">
           <!-- Logo -->
-          <div class="flex items-center gap-x-3">
-            <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-[#22f5ff] via-[#a855f7] to-[#22f5ff] p-px">
+          <a href="/" class="flex items-center gap-x-3 min-h-[48px]" aria-label="aic.contact home">
+            <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-[#22f5ff] via-[#a855f7] to-[#22f5ff] p-px" aria-hidden="true">
               <div class="w-full h-full bg-[#0a0a0f] rounded-2xl flex items-center justify-center">
                 <span class="text-[#22f5ff] text-xl font-bold tracking-tighter">AIC</span>
               </div>
@@ -51,33 +86,53 @@ const canonical = canonicalUrl(Astro.url.pathname);
             <div>
               <div class="font-display text-2xl font-semibold tracking-tighter">aic.contact</div>
             </div>
-          </div>
+          </a>
 
           <!-- Desktop Navigation -->
           <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
-            <a href="#meaning" class="nav-link text-white/80 hover:text-white">The Meaning</a>
-            <a href="#why" class="nav-link text-white/80 hover:text-white">Why This Domain</a>
-            <a href="#uses" class="nav-link text-white/80 hover:text-white">Ideal For</a>
-            <a href="#pricing" class="nav-link text-white/80 hover:text-white">Pricing</a>
-            <a href="#faq" class="nav-link text-white/80 hover:text-white">FAQ</a>
+            <a href="/#meaning" class="nav-link text-white/80 hover:text-white min-h-[48px] inline-flex items-center">The Meaning</a>
+            <a href="/#why" class="nav-link text-white/80 hover:text-white min-h-[48px] inline-flex items-center">Why This Domain</a>
+            <a href="/#uses" class="nav-link text-white/80 hover:text-white min-h-[48px] inline-flex items-center">Ideal For</a>
+            <a href="/valuation-guide/" class="nav-link text-white/80 hover:text-white min-h-[48px] inline-flex items-center">Valuation Guide</a>
+            <a href="/#pricing" class="nav-link text-white/80 hover:text-white min-h-[48px] inline-flex items-center">Pricing</a>
+            <a href="/#faq" class="nav-link text-white/80 hover:text-white min-h-[48px] inline-flex items-center">FAQ</a>
           </div>
 
           <!-- CTA Buttons -->
           <div class="flex items-center gap-x-3">
-            <a href="#inquire"
-               class="hidden sm:inline-flex items-center justify-center px-6 py-2.5 text-sm font-semibold rounded-2xl border border-white/20 hover:bg-white/5 transition-colors">
+            <button
+              id="theme-toggle"
+              type="button"
+              class="w-12 h-12 inline-flex items-center justify-center rounded-2xl border border-white/20 text-white/80 hover:bg-white/5 transition-colors"
+              aria-label="Toggle light mode"
+              title="Toggle light / dark mode"
+            >
+              <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+              </svg>
+              <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.36 6.36l-.7-.7M6.34 6.34l-.7-.7m12.02 0l-.7.7M6.34 17.66l-.7.7M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+            </button>
+            <a href="/#inquire"
+               data-cta="nav-inquire"
+               class="hidden sm:inline-flex items-center justify-center px-6 min-h-[48px] text-sm font-semibold rounded-2xl border border-white/20 hover:bg-white/5 transition-colors">
               Inquire
             </a>
             <a href="mailto:sales@desertrich.com?subject=Acquisition%20Inquiry%20-%20aic.contact&body=Hello,%0D%0A%0D%0AI%20am%20interested%20in%20acquiring%20aic.contact.%20Please%20provide%20details%20and%20next%20steps.%0D%0A%0D%0ABest%20regards,"
-               class="inline-flex items-center justify-center px-6 py-2.5 text-sm font-semibold rounded-2xl bg-white text-[#0a0a0f] hover:bg-white/90 transition-all active:scale-[0.985]">
+               data-cta="nav-secure-now"
+               class="inline-flex items-center justify-center px-6 min-h-[48px] text-sm font-semibold rounded-2xl bg-white text-[#0a0a0f] hover:bg-white/90 transition-all active:scale-[0.985]">
               Secure Now
             </a>
 
-            <!-- Mobile Menu Button -->
+            <!-- Mobile Menu Button (48px tap target) -->
             <button id="mobile-menu-btn"
-                    class="md:hidden w-10 h-10 flex items-center justify-center text-white/70 hover:text-white transition-colors"
-                    aria-label="Toggle menu">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    type="button"
+                    class="md:hidden w-12 h-12 flex items-center justify-center text-white/70 hover:text-white transition-colors rounded-xl"
+                    aria-label="Toggle menu"
+                    aria-expanded="false"
+                    aria-controls="mobile-menu">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
@@ -88,20 +143,23 @@ const canonical = canonicalUrl(Astro.url.pathname);
 
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden fixed inset-0 z-40 bg-[#0a0a0f] pt-20">
-      <div class="px-6 py-8 flex flex-col gap-y-6 text-lg font-medium">
-        <a href="#meaning" class="mobile-nav-link py-2">The Meaning</a>
-        <a href="#why" class="mobile-nav-link py-2">Why This Domain</a>
-        <a href="#uses" class="mobile-nav-link py-2">Ideal For</a>
-        <a href="#pricing" class="mobile-nav-link py-2">Pricing</a>
-        <a href="#faq" class="mobile-nav-link py-2">FAQ</a>
+      <div class="px-6 py-8 flex flex-col gap-y-2 text-lg font-medium">
+        <a href="/#meaning" class="mobile-nav-link py-3 min-h-[48px] inline-flex items-center">The Meaning</a>
+        <a href="/#why" class="mobile-nav-link py-3 min-h-[48px] inline-flex items-center">Why This Domain</a>
+        <a href="/#uses" class="mobile-nav-link py-3 min-h-[48px] inline-flex items-center">Ideal For</a>
+        <a href="/valuation-guide/" class="mobile-nav-link py-3 min-h-[48px] inline-flex items-center">Valuation Guide</a>
+        <a href="/comparable-sales/" class="mobile-nav-link py-3 min-h-[48px] inline-flex items-center">Comparable Sales</a>
+        <a href="/#pricing" class="mobile-nav-link py-3 min-h-[48px] inline-flex items-center">Pricing</a>
+        <a href="/#faq" class="mobile-nav-link py-3 min-h-[48px] inline-flex items-center">FAQ</a>
         <div class="pt-4 border-t border-white/10">
           <a href="mailto:sales@desertrich.com?subject=Acquisition%20Inquiry%20-%20aic.contact"
-             class="block w-full text-center py-3.5 rounded-2xl bg-white text-[#0a0a0f] font-semibold">Secure This Domain</a>
+             data-cta="mobile-menu-secure"
+             class="flex w-full text-center min-h-[48px] items-center justify-center py-3.5 rounded-2xl bg-white text-[#0a0a0f] font-semibold">Secure This Domain</a>
         </div>
       </div>
     </div>
 
-    <main>
+    <main id="main-content">
       <slot />
     </main>
 
@@ -111,12 +169,12 @@ const canonical = canonicalUrl(Astro.url.pathname);
         <!-- Domain Acquisition CTA -->
         <div class="bg-gradient-to-b from-white/[0.03] to-white/[0.06] rounded-2xl p-8 md:p-10 mb-8 text-center border border-white/10">
           <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-5">
-            <div class="w-1.5 h-1.5 bg-[#22f5ff] rounded-full animate-pulse"></div>
+            <div class="w-1.5 h-1.5 bg-[#22f5ff] rounded-full animate-pulse" aria-hidden="true"></div>
             <span class="text-xs font-semibold tracking-[1.5px] text-white/80">ULTRA-SHORT PREMIUM DOMAIN AVAILABLE</span>
           </div>
-          <h3 class="text-2xl md:text-3xl font-bold text-white mb-3 font-display tracking-tight">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-3 font-display tracking-tight">
             Acquire aic.contact
-          </h3>
+          </h2>
           <p class="text-white/60 max-w-lg mx-auto mb-8 leading-relaxed">
             The shortest, most authoritative way to say "AI Contact." A rare three-letter .contact domain
             with built-in meaning — ready for consultants, agencies, thought leaders, and anyone building
@@ -125,19 +183,20 @@ const canonical = canonicalUrl(Astro.url.pathname);
           <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
               href="mailto:sales@desertrich.com?subject=Acquisition%20Inquiry%20-%20aic.contact&body=Hello,%0D%0A%0D%0AI%20am%20interested%20in%20acquiring%20aic.contact.%20Please%20provide%20details%20and%20next%20steps.%0D%0A%0D%0ABest%20regards,"
-              class="inline-flex items-center justify-center gap-x-2 px-8 py-3 bg-gradient-to-r from-[#22f5ff] to-[#a855f7] text-[#0a0a0f] font-semibold rounded-xl transition-all hover:brightness-105 active:scale-[0.985] shadow-lg shadow-[#22f5ff]/20"
+              data-cta="footer-inquire"
+              class="inline-flex items-center justify-center gap-x-2 px-8 min-h-[48px] py-3 bg-gradient-to-r from-[#22f5ff] to-[#a855f7] text-[#0a0a0f] font-semibold rounded-xl transition-all hover:brightness-105 active:scale-[0.985] shadow-lg shadow-[#22f5ff]/20"
             >
               <span>Inquire: sales@desertrich.com</span>
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7-7 7M3 12h18" />
               </svg>
             </a>
             <button
               id="copyEmailBtn"
-              class="inline-flex items-center justify-center gap-x-2 px-6 py-3 border border-white/20 hover:bg-white/5 text-white/80 font-medium rounded-xl transition-all text-sm"
-              onclick="copyEmail()"
+              type="button"
+              class="inline-flex items-center justify-center gap-x-2 px-6 min-h-[48px] py-3 border border-white/20 hover:bg-white/5 text-white/80 font-medium rounded-xl transition-all text-base"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
               </svg>
               <span>Copy Email</span>
@@ -147,6 +206,15 @@ const canonical = canonicalUrl(Astro.url.pathname);
             Serious inquiries only. Full ownership transfer via secure escrow (Escrow.com).
           </p>
         </div>
+
+        <!-- Internal linking (SEO) -->
+        <nav aria-label="Footer" class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-white/60 mb-8">
+          <a href="/" class="hover:text-white min-h-[48px] inline-flex items-center">Home</a>
+          <a href="/valuation-guide/" class="hover:text-white min-h-[48px] inline-flex items-center">Domain Valuation Guide</a>
+          <a href="/comparable-sales/" class="hover:text-white min-h-[48px] inline-flex items-center">Comparable Sales</a>
+          <a href="/#faq" class="hover:text-white min-h-[48px] inline-flex items-center">FAQ</a>
+          <a href="/sitemap-index.xml" class="hover:text-white min-h-[48px] inline-flex items-center">Sitemap</a>
+        </nav>
 
         <!-- Bottom: Disclaimer + Info -->
         <div class="border-t border-white/10 pt-8">
@@ -161,9 +229,9 @@ const canonical = canonicalUrl(Astro.url.pathname);
             </div>
             <div class="flex items-center gap-x-4">
               <span>One-time acquisition</span>
-              <span class="hidden md:inline">&bull;</span>
+              <span class="hidden md:inline" aria-hidden="true">&bull;</span>
               <span>Full ownership transfer</span>
-              <span class="hidden md:inline">&bull;</span>
+              <span class="hidden md:inline" aria-hidden="true">&bull;</span>
               <span>Premium .contact</span>
             </div>
           </div>
@@ -172,19 +240,22 @@ const canonical = canonicalUrl(Astro.url.pathname);
     </footer>
 
     <script>
-      function copyEmail() {
-        const email = 'sales@desertrich.com';
-        navigator.clipboard.writeText(email).then(() => {
-          const btn = document.getElementById('copyEmailBtn');
-          if (btn) {
-            const original = btn.innerHTML;
-            btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg><span class="text-emerald-400">Copied to clipboard!</span>';
-            setTimeout(() => {
-              btn.innerHTML = original;
-            }, 2200);
+      // Copy email helper (global for inline onclick-free binding)
+      function bindCopyEmail() {
+        const btn = document.getElementById('copyEmailBtn');
+        if (!btn || btn.dataset.bound) return;
+        btn.dataset.bound = '1';
+        btn.addEventListener('click', () => {
+          const email = 'sales@desertrich.com';
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(email).then(() => {
+              const original = btn.innerHTML;
+              btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg><span class="text-emerald-400">Copied to clipboard!</span>';
+              setTimeout(() => { btn.innerHTML = original; }, 2200);
+            }).catch(() => { window.location.href = 'mailto:' + email; });
+          } else {
+            window.location.href = 'mailto:' + email;
           }
-        }).catch(() => {
-          window.location.href = 'mailto:' + email;
         });
       }
 
@@ -192,51 +263,106 @@ const canonical = canonicalUrl(Astro.url.pathname);
         const menu = document.getElementById('mobile-menu');
         const btn = document.getElementById('mobile-menu-btn');
         if (!menu || !btn) return;
-
         const isHidden = menu.classList.contains('hidden');
+        btn.setAttribute('aria-expanded', String(isHidden));
         if (isHidden) {
           menu.classList.remove('hidden');
           const icon = btn.querySelector('svg');
-          if (icon) {
-            icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6h12v12" />';
-          }
+          if (icon) icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />';
         } else {
           menu.classList.add('hidden');
           const icon = btn.querySelector('svg');
-          if (icon) {
-            icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
-          }
+          if (icon) icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
         }
       }
 
-      // Attach mobile menu toggle
-      document.addEventListener('DOMContentLoaded', () => {
-        const btn = document.getElementById('mobile-menu-btn');
-        if (btn) {
-          btn.addEventListener('click', toggleMobileMenu);
-        }
+      function initThemeToggle() {
+        const btn = document.getElementById('theme-toggle');
+        if (!btn || btn.dataset.bound) return;
+        btn.dataset.bound = '1';
+        const moon = document.getElementById('theme-icon-moon');
+        const sun = document.getElementById('theme-icon-sun');
+        const sync = () => {
+          const light = document.documentElement.classList.contains('light-mode');
+          if (moon) moon.classList.toggle('hidden', light);
+          if (sun) sun.classList.toggle('hidden', !light);
+          btn.setAttribute('aria-label', light ? 'Switch to dark mode' : 'Switch to light mode');
+        };
+        sync();
+        btn.addEventListener('click', () => {
+          const light = document.documentElement.classList.toggle('light-mode');
+          try { localStorage.setItem('aic-theme', light ? 'light' : 'dark'); } catch (e) {}
+          sync();
+        });
+      }
 
-        // Close mobile menu on link click
+      // Lightweight privacy-friendly CTA + pageview tracking.
+      // Sends to /api/track (Worker returns 204) — no PII, no cookies.
+      function trackEvent(name, data) {
+        try {
+          const payload = JSON.stringify({ event: name, ...data, path: location.pathname, ts: Date.now() });
+          if (navigator.sendBeacon) {
+            navigator.sendBeacon('/api/track', new Blob([payload], { type: 'application/json' }));
+          } else {
+            fetch('/api/track', { method: 'POST', body: payload, keepalive: true }).catch(() => {});
+          }
+        } catch (e) {}
+      }
+
+      function initCtaTracking() {
+        if (document.body.dataset.ctaBound) return;
+        document.body.dataset.ctaBound = '1';
+        trackEvent('pageview', { title: document.title });
+        document.querySelectorAll('[data-cta]').forEach((el) => {
+          el.addEventListener('click', () => {
+            trackEvent('cta_click', { cta: el.getAttribute('data-cta') });
+          }, { passive: true });
+        });
+      }
+
+      // Fade-in on scroll (progressive enhancement)
+      function initReveal() {
+        if (!('IntersectionObserver' in window)) {
+          document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'));
+          return;
+        }
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add('is-visible');
+              io.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        bindCopyEmail();
+        initThemeToggle();
+        initCtaTracking();
+        initReveal();
+        const btn = document.getElementById('mobile-menu-btn');
+        if (btn) btn.addEventListener('click', toggleMobileMenu);
         document.querySelectorAll('.mobile-nav-link').forEach(link => {
           link.addEventListener('click', () => {
             const menu = document.getElementById('mobile-menu');
             if (menu) menu.classList.add('hidden');
-            const btn = document.getElementById('mobile-menu-btn');
-            if (btn) {
-              const icon = btn.querySelector('svg');
-              if (icon) {
-                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
-              }
+            const b = document.getElementById('mobile-menu-btn');
+            if (b) {
+              b.setAttribute('aria-expanded', 'false');
+              const icon = b.querySelector('svg');
+              if (icon) icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
             }
           });
         });
-
-        // Keyboard: ESC closes mobile menu
         document.addEventListener('keydown', (e) => {
           if (e.key === 'Escape') {
             const menu = document.getElementById('mobile-menu');
             if (menu && !menu.classList.contains('hidden')) {
               menu.classList.add('hidden');
+              const b = document.getElementById('mobile-menu-btn');
+              if (b) b.setAttribute('aria-expanded', 'false');
             }
           }
         });

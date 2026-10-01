@@ -7,7 +7,7 @@ const description =
   'This page does not exist. aic.contact — the premium 3-letter AI contact domain — is available for acquisition at $4,444 USD, escrow protected.';
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} noindex={true}>
   <SEO slot="head" title={title} description={description} pathname="/404/" />
 
   <section class="min-h-[70vh] flex items-center justify-center px-6 pt-24 pb-16">
@@ -24,13 +24,15 @@ const description =
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <a
           href="/"
-          class="inline-flex items-center justify-center px-8 py-3.5 rounded-2xl bg-white text-[#0a0a0f] font-semibold hover:bg-white/90 transition-all"
+          data-cta="404-back-home"
+          class="inline-flex items-center justify-center px-8 min-h-[48px] py-3.5 rounded-2xl bg-white text-[#0a0a0f] font-semibold hover:bg-white/90 transition-all"
         >
           Back to aic.contact
         </a>
         <a
           href="mailto:sales@desertrich.com?subject=Acquisition%20Inquiry%20-%20aic.contact&body=Hello,%0D%0A%0D%0AI%20am%20interested%20in%20acquiring%20aic.contact.%20Please%20provide%20details%20and%20next%20steps.%0D%0A%0D%0ABest%20regards,"
-          class="inline-flex items-center justify-center px-8 py-3.5 rounded-2xl border border-white/20 hover:bg-white/5 text-white/90 font-medium transition-all"
+          data-cta="404-inquire"
+          class="inline-flex items-center justify-center px-8 min-h-[48px] py-3.5 rounded-2xl border border-white/20 hover:bg-white/5 text-white/90 font-medium transition-all"
         >
           Inquire: sales@desertrich.com
         </a>
@@ -38,5 +40,3 @@ const description =
     </div>
   </section>
 </Layout>
-
-<meta name="robots" content="noindex" slot="head" />
